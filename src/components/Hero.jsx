@@ -21,7 +21,7 @@ export default function Hero() {
           <p data-hero className="mt-4 text-2xl font-medium text-cyan sm:text-3xl">MERN Stack Developer</p>
           <p data-hero className="mt-5 max-w-xl text-lg text-zinc-200">Building modern web experiences with React, Node.js, and AI-powered integrations.</p>
           <p data-hero className="mt-4 max-w-xl text-zinc-400">I'm a developer passionate about building responsive user interfaces, scalable web applications, and practical AI-powered products. I enjoy turning ideas into functional, user-friendly digital experiences.</p>
-          <div data-hero className="mt-8 flex flex-wrap gap-3">
+          <div data-hero className="mt-10 flex flex-wrap gap-3">
             <a href="#projects" className="inline-flex min-h-[44px] items-center justify-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-cyan bg-cyan text-ink hover:bg-cyan/85">Explore My Work</a>
             <a href="#contact" className="inline-flex min-h-[44px] items-center justify-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan">Let's Connect</a>
           </div>

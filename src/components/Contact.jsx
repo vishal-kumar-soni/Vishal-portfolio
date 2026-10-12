@@ -41,7 +41,7 @@ export default function Contact() {
   const color = { error: 'text-red-400', success: 'text-cyan', info: 'text-zinc-400', loading: 'text-zinc-400', idle: '' }
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="relative mx-auto max-w-6xl scroll-mt-[4.5rem] px-5 py-20 md:py-28">
+    <section id="contact" aria-labelledby="contact-title" className="relative mx-auto max-w-6xl scroll-mt-[4.5rem] px-5 py-20 md:py-10">
       <div data-reveal className="mb-10 max-w-2xl">
         <h2 id="contact-title" className="text-3xl font-semibold tracking-tight text-white md:text-4xl">Have a Project in Mind?</h2>
         <p className="mt-3 text-zinc-400">I'm always interested in connecting with developers, recruiters, and people building useful products. Feel free to reach out.</p>

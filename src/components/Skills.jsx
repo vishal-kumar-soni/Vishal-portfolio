@@ -4,7 +4,7 @@ const icons = { Terminal, Layout, Server, Database, Wrench }
 
 export default function Skills() {
   return (
-    <section id="skills" aria-labelledby="skills-title" className="relative mx-auto max-w-6xl scroll-mt-[4.5rem] px-5 py-20 md:py-28">
+    <section id="skills" aria-labelledby="skills-title" className="relative mx-auto max-w-6xl scroll-mt-[4.5rem] px-5 py-20 md:pt-10">
       <div data-reveal className="mb-10 max-w-2xl">
         <h2 id="skills-title" className="text-3xl font-semibold tracking-tight text-white md:text-4xl">Technologies I Work With</h2>
       </div>

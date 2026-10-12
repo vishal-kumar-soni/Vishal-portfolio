@@ -10,7 +10,7 @@ const approach = ['Building useful, real-world applications', 'Writing maintaina
 
 export default function About() {
   return (
-    <section id="about" aria-labelledby="about-title" className="relative mx-auto max-w-6xl scroll-mt-[4.5rem] px-5 py-20 md:py-28">
+    <section id="about" aria-labelledby="about-title" className="relative mx-auto max-w-6xl scroll-mt-[4rem] px-5 py-20 md:py-20">
       <div data-reveal className="mb-10 max-w-2xl">
         <h2 id="about-title" className="text-3xl font-semibold tracking-tight text-white md:text-4xl">A Little About Me</h2>
       </div>
