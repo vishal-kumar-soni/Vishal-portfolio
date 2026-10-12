@@ -25,7 +25,7 @@ function Mockup({ id }) {
       <div className="space-y-2 border-r border-violet/20 p-3"><div className="h-5 bg-violet/40" />{[0, 1, 2].map((i) => <div key={i} className="h-3 bg-zinc-800" />)}</div>
       <div className="flex flex-col justify-end gap-2 p-4 text-[10px]">
         <div className="ml-auto max-w-[70%] bg-violet/30 p-2 text-zinc-200">How do I structure a REST API?</div>
-        <div className="max-w-[80%] border border-line bg-panel p-2 text-zinc-400">Start with resources and routes...<span className="ml-1 inline-block h-2.5 w-1 animate-pulse bg-cyan" /></div>
+        <div className="max-w-[80%] border border-line bg-panel p-2 text-zinc-400">Start with resources and routes...<span className="ml-1 inline-block h-2.5 w-1 animate-pulse motion-reduce:animate-none bg-cyan" /></div>
         <div className="mt-1 h-7 border border-line" />
       </div>
     </div>
@@ -33,8 +33,8 @@ function Mockup({ id }) {
 }
 
 const Action = ({ href, icon: Icon, label, primary }) => href
-  ? <a href={href} target="_blank" rel="noreferrer" className={`btn ${primary ? 'btn-primary' : 'btn-ghost'}`}><Icon size={16} />{label}</a>
-  : <span role="link" aria-disabled="true" title="Link coming soon" className="btn btn-ghost"><Icon size={16} />{label}</span>
+  ? <a href={href} target="_blank" rel="noreferrer" className={`inline-flex min-h-[44px] items-center justify-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 ${primary ? 'border-cyan bg-cyan text-ink hover:bg-cyan/85' : 'border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan'}`}><Icon size={16} />{label}</a>
+  : <span role="link" aria-disabled="true" title="Link coming soon" className="inline-flex min-h-[44px] items-center justify-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan"><Icon size={16} />{label}</span>
 
 export default function ProjectCard({ p, flip }) {
   return (
@@ -53,7 +53,7 @@ export default function ProjectCard({ p, flip }) {
         <ul className="mt-5 grid gap-x-4 gap-y-1.5 text-sm text-zinc-400 sm:grid-cols-2">
           {p.features.map((f) => <li key={f} className="flex gap-2"><span className="mt-2 h-1 w-1 shrink-0 bg-cyan" aria-hidden="true" />{f}</li>)}
         </ul>
-        <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${p.name} technologies`}>{p.tech.map((t) => <li key={t} className="tag">{t}</li>)}</ul>
+        <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${p.name} technologies`}>{p.tech.map((t) => <li key={t} className="border border-line px-2 py-1 font-mono text-xs text-zinc-400">{t}</li>)}</ul>
         <div className="mt-auto flex flex-wrap gap-3 pt-6">
           <Action href={p.github} icon={Github} label="GitHub" />
           <Action href={p.live} icon={ExternalLink} label="Live Demo" primary />

@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
-body { @apply bg-ink text-zinc-300 font-sans antialiased; overflow-x: hidden; }
-section[id] { scroll-margin-top: 4.5rem; }
-:focus-visible { outline: 2px solid #22d3ee; outline-offset: 3px; border-radius: 4px; }
-.bg-grid { background-image: linear-gradient(#1f263066 1px, transparent 1px), linear-gradient(90deg, #1f263066 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(ellipse at 60% 30%, #000 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 60% 30%, #000 20%, transparent 75%); }
-.btn { @apply inline-flex items-center justify-center gap-2 min-h-[44px] px-5 text-sm font-medium border transition-colors; }
-.btn-primary { @apply bg-cyan text-ink border-cyan hover:bg-cyan/85; }
-.btn-ghost { @apply border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan; }
-.btn[aria-disabled='true'] { @apply opacity-40 pointer-events-none; }
-.tag { @apply border border-line px-2 py-1 text-xs font-mono text-zinc-400; }
+@layer base {
+  :focus-visible { outline: 2px solid #22d3ee; outline-offset: 3px; }
+}

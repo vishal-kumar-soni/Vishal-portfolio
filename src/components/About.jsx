@@ -1,5 +1,4 @@
 import { GraduationCap, Layers, Code2, Sparkles } from 'lucide-react'
-import Section from './Section'
 
 const info = [
   { icon: GraduationCap, label: 'Education', value: 'Bachelor of Computer Applications (BCA)' },
@@ -11,7 +10,10 @@ const approach = ['Building useful, real-world applications', 'Writing maintaina
 
 export default function About() {
   return (
-    <Section id="about" title="A Little About Me">
+    <section id="about" aria-labelledby="about-title" className="relative mx-auto max-w-6xl scroll-mt-[4.5rem] px-5 py-20 md:py-28">
+      <div data-reveal className="mb-10 max-w-2xl">
+        <h2 id="about-title" className="text-3xl font-semibold tracking-tight text-white md:text-4xl">A Little About Me</h2>
+      </div>
       <div className="grid gap-12 lg:grid-cols-2">
         <div data-reveal className="space-y-4 text-zinc-400">
           <p>I completed my Bachelor of Computer Applications (BCA) from Marwari College, Ranchi, Jharkhand, India, and I'm now focused on building my career as a MERN Stack developer.</p>
@@ -30,6 +32,6 @@ export default function About() {
           ))}
         </dl>
       </div>
-    </Section>
+    </section>
   )
 }

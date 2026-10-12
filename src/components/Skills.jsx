@@ -1,11 +1,13 @@
 import { Terminal, Layout, Server, Database, Wrench } from 'lucide-react'
-import Section from './Section'
 import { skills } from '../data/skills'
 const icons = { Terminal, Layout, Server, Database, Wrench }
 
 export default function Skills() {
   return (
-    <Section id="skills" title="Technologies I Work With">
+    <section id="skills" aria-labelledby="skills-title" className="relative mx-auto max-w-6xl scroll-mt-[4.5rem] px-5 py-20 md:py-28">
+      <div data-reveal className="mb-10 max-w-2xl">
+        <h2 id="skills-title" className="text-3xl font-semibold tracking-tight text-white md:text-4xl">Technologies I Work With</h2>
+      </div>
       <div className="divide-y divide-line border-y border-line">
         {skills.map(({ title, icon, items }) => {
           const Icon = icons[icon]
@@ -21,6 +23,6 @@ export default function Skills() {
           )
         })}
       </div>
-    </Section>
+    </section>
   )
 }

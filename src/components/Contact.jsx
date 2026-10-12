@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Mail, Github, Linkedin } from 'lucide-react'
-import Section from './Section'
 import { site } from '../data/site'
 
 const fields = [['name', 'Name', 'text'], ['email', 'Email', 'email'], ['subject', 'Subject', 'text']]
@@ -42,13 +41,17 @@ export default function Contact() {
   const color = { error: 'text-red-400', success: 'text-cyan', info: 'text-zinc-400', loading: 'text-zinc-400', idle: '' }
 
   return (
-    <Section id="contact" title="Have a Project in Mind?" subtitle="I'm always interested in connecting with developers, recruiters, and people building useful products. Feel free to reach out.">
+    <section id="contact" aria-labelledby="contact-title" className="relative mx-auto max-w-6xl scroll-mt-[4.5rem] px-5 py-20 md:py-28">
+      <div data-reveal className="mb-10 max-w-2xl">
+        <h2 id="contact-title" className="text-3xl font-semibold tracking-tight text-white md:text-4xl">Have a Project in Mind?</h2>
+        <p className="mt-3 text-zinc-400">I'm always interested in connecting with developers, recruiters, and people building useful products. Feel free to reach out.</p>
+      </div>
       <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
         <div data-reveal className="space-y-3">
-          <a href={`mailto:${site.email}`} className="btn btn-primary w-full justify-start"><Mail size={16} />{site.email}</a>
+          <a href={`mailto:${site.email}`} className="inline-flex min-h-[44px] items-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-cyan bg-cyan text-ink hover:bg-cyan/85 w-full justify-start"><Mail size={16} />{site.email}</a>
           {[['LinkedIn', site.linkedin, Linkedin], ['GitHub', site.github, Github]].map(([l, h, Icon]) => h
-            ? <a key={l} href={h} target="_blank" rel="noreferrer" className="btn btn-ghost w-full justify-start"><Icon size={16} />{l}</a>
-            : <span key={l} role="link" aria-disabled="true" className="btn btn-ghost w-full justify-start"><Icon size={16} />{l} (add link)</span>)}
+            ? <a key={l} href={h} target="_blank" rel="noreferrer" className="inline-flex min-h-[44px] items-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan w-full justify-start"><Icon size={16} />{l}</a>
+            : <span key={l} role="link" aria-disabled="true" className="inline-flex min-h-[44px] items-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan w-full justify-start"><Icon size={16} />{l} (add link)</span>)}
         </div>
         <form data-reveal onSubmit={submit} noValidate className="space-y-4">
           {fields.map(([k, label, type]) => (
@@ -63,11 +66,11 @@ export default function Contact() {
             <textarea id="message" rows={5} value={v.message} onChange={set('message')} aria-invalid={!!errors.message} aria-describedby={errors.message ? 'message-err' : undefined} className={input('message')} />
             {errors.message && <p id="message-err" className="mt-1 text-sm text-red-400">{errors.message}</p>}
           </div>
-          <button type="submit" disabled={status.type === 'loading'} className="btn btn-primary w-full sm:w-auto">{site.formEndpoint ? 'Send message' : 'Open in email app'}</button>
+          <button type="submit" disabled={status.type === 'loading'} className="inline-flex min-h-[44px] items-center justify-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-cyan bg-cyan text-ink hover:bg-cyan/85 w-full sm:w-auto">{site.formEndpoint ? 'Send message' : 'Open in email app'}</button>
           <p role="status" aria-live="polite" className={`text-sm ${color[status.type]}`}>{status.text}</p>
         </form>
       </div>
       <p data-reveal className="mt-20 text-center text-2xl font-semibold text-white md:text-4xl">Let's Build Something Meaningful.</p>
-    </Section>
+    </section>
   )
 }
