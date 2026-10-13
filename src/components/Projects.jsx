@@ -14,7 +14,7 @@ export default function Projects() {
       {/* All projects */}
       <div className="space-y-8 ">
         {
-          projects.map((p, i) => <ProjectCard key={p.id} p={p} flip={i % 2 === 1} />)
+          projects.map((p, i) => <ProjectCard key={p.id} project={p} flip={i % 2 === 1} />)
         }
       </div>
       <div data-reveal className="mt-10 text-center">

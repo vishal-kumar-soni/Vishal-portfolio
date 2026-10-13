@@ -32,26 +32,30 @@ const Action = ({ href, icon: Icon, label, primary }) => href
   ? <a href={href} target="_blank" rel="noreferrer" className={`inline-flex min-h-[44px] items-center justify-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 ${primary ? 'border-cyan bg-cyan text-ink hover:bg-cyan/85' : 'border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan'}`}><Icon size={16} />{label}</a>
   : <span role="link" aria-disabled="true" title="Link coming soon" className="inline-flex min-h-[44px] items-center justify-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan"><Icon size={16} />{label}</span>
 
-export default function ProjectCard({ p, flip }) {
+export default function ProjectCard({ project, flip }) {
   return (
     <article data-reveal className="group grid border border-line bg-panel transition-colors hover:border-cyan/40 lg:grid-cols-2">
+
+      {/* Project Images */}
       <div className={`relative min-h-[260px]  overflow-hidden border-b border-line lg:border-b-0 ${flip ? 'lg:order-2 lg:border-l' : 'lg:border-r'}`}>
         <div className="h-full flex flex-col justify-between  min-h-[260px] ">
-          <Mockup id={p.id} />
+          <Mockup id={project.id} />
         </div>
       </div>
-      <div className="flex flex-col p-6 md:p-8">
-        <p className="text-xs tracking-widest text-cyan">{p.category}</p>
-        <h3 className="mt-2 text-2xl font-semibold text-white">{p.name}</h3>
-        <p className="text-sm text-zinc-500">{p.subtitle}</p>
-        <p className="mt-4 text-zinc-400">{p.description}</p>
+
+      {/* Project details */}
+      <div className="flex flex-col p-6 md:p-8 ">
+        <p className="text-xs tracking-widest text-cyan">{project.category}</p>
+        <h3 className="mt-2 text-2xl font-semibold text-white">{project.name}</h3>
+        <p className="text-sm text-zinc-500">{project.subtitle}</p>
+        <p className="mt-4 text-zinc-400">{project.description}</p>
         <ul className="mt-5 grid gap-x-4 gap-y-1.5 text-sm text-zinc-400 sm:grid-cols-2">
-          {p.features.map((f) => <li key={f} className="flex gap-2"><span className="mt-2 h-1 w-1 shrink-0 bg-cyan" aria-hidden="true" />{f}</li>)}
+          {project.features.map((f) => <li key={f} className="flex gap-2"><span className="mt-2 h-1 w-1 shrink-0 bg-cyan" aria-hidden="true" />{f}</li>)}
         </ul>
-        <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${p.name} technologies`}>{p.tech.map((t) => <li key={t} className="border border-line px-2 py-1 font-mono text-xs text-zinc-400">{t}</li>)}</ul>
+        <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${project.name} technologies`}>{project.tech.map((t) => <li key={t} className="border border-line px-2 py-1 font-mono text-xs text-zinc-400">{t}</li>)}</ul>
         <div className="mt-auto flex flex-wrap gap-3 pt-6">
-          <Action href={p.github} icon={Github} label="GitHub" />
-          <Action href={p.live} icon={ExternalLink} label="Live Demo" primary />
+          <Action href={project.github} icon={Github} label="GitHub" />
+          <Action href={project.live} icon={ExternalLink} label="Live Demo" primary />
         </div>
       </div>
     </article>
