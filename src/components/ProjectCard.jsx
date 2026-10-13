@@ -1,18 +1,30 @@
 import { Github, ExternalLink } from 'lucide-react'
-import deepseek from '/deepseek.png'
-import medilocker from '/medilocker.png'
-import vashtra from '/vashtra.png'
+import deepseek1 from '/deepseek1.png'
+import deepseek2 from '/deepseek2.png'
+import medilocker1 from '/medilocker1.png'
+import medilocker2 from '/medilocker2.png'
+import vashtra1 from '/vashtra1.png'
+import vashtra2 from '/vashtra2.png'
 
 
 function Mockup({ id }) {
   if (id === 'vashtra') return (
-    <img src={vashtra} height={600}></img>
+    [
+      <img src={vashtra1} className='transition-transform p-2 duration-500 hover:scale-[1.02]' height={600}></img>,
+      <img src={vashtra2} className='transition-transform p-2 duration-500 hover:scale-[1.02]' height={600}></img>
+    ]
   )
   if (id === 'medilocker') return (
-    <img src={medilocker}></img>
+    [
+      <img src={medilocker1} className='transition-transform p-2 duration-500 hover:scale-[1.02]' >
+      </img>, <img src={medilocker2} className='transition-transform p-2 duration-500 hover:scale-[1.02]' ></img>
+    ]
   )
   if (id === 'chat') return (
-    <img src={deepseek}></img>
+    [
+      <img src={deepseek1} className='transition-transform p-2 duration-500 hover:scale-[1.02]' ></img>,
+      <img src={deepseek2} className='transition-transform p-2 duration-500 hover:scale-[1.02]' ></img>
+    ]
   )
 }
 
@@ -23,9 +35,9 @@ const Action = ({ href, icon: Icon, label, primary }) => href
 export default function ProjectCard({ p, flip }) {
   return (
     <article data-reveal className="group grid border border-line bg-panel transition-colors hover:border-cyan/40 lg:grid-cols-2">
-      <div className={`relative min-h-[260px] overflow-hidden border-b border-line lg:border-b-0 ${flip ? 'lg:order-2 lg:border-l' : 'lg:border-r'}`}>
-        <div className="h-full min-h-[260px] transition-transform p-2 duration-500 group-hover:scale-[1.03]">
-          {p.image ? <img src={p.image} alt={`${p.name} screenshot`} className="h-full w-full object-cover" loading="lazy" /> : <Mockup id={p.id} />}
+      <div className={`relative min-h-[260px]  overflow-hidden border-b border-line lg:border-b-0 ${flip ? 'lg:order-2 lg:border-l' : 'lg:border-r'}`}>
+        <div className="h-full flex flex-col justify-between  min-h-[260px] ">
+          <Mockup id={p.id} />
         </div>
       </div>
       <div className="flex flex-col p-6 md:p-8">
