@@ -1,8 +1,22 @@
 import { MonitorSmartphone, Network, Bot } from 'lucide-react'
+
+
 const areas = [
-  { icon: MonitorSmartphone, title: 'Frontend Engineering', text: 'Building responsive interfaces with React.js, Tailwind CSS, reusable components, and thoughtful interactions.' },
-  { icon: Network, title: 'Full-Stack Development', text: 'Connecting frontend applications to backend APIs, databases, and authentication systems.' },
-  { icon: Bot, title: 'AI Integration', text: 'Building AI-powered web experiences by integrating language-model APIs into modern web applications.' }
+  {
+    icon: MonitorSmartphone,
+    title: 'Frontend Engineering',
+    text: 'Building responsive interfaces with React.js, Tailwind CSS, reusable components, and thoughtful interactions.'
+  },
+  {
+    icon: Network,
+    title: 'Full-Stack Development',
+    text: 'Connecting frontend applications to backend APIs, databases, and authentication systems.'
+  },
+  {
+    icon: Bot,
+    title: 'AI Integration',
+    text: 'Building AI-powered web experiences by integrating language-model APIs into modern web applications.'
+  }
 ]
 export default function FocusAreas() {
   return (
