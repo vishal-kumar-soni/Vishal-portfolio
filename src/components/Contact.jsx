@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Mail, Github, Linkedin } from 'lucide-react'
+import { Mail, Github, Linkedin, LocateIcon } from 'lucide-react'
 import { site } from '../data/site'
+import { LuSend } from "react-icons/lu";
 
 const fields = [['name', 'Name', 'text'], ['email', 'Email', 'email'], ['subject', 'Subject', 'text']]
 
@@ -48,12 +49,13 @@ export default function Contact() {
         <p className="mt-3 text-zinc-400">I'm always interested in connecting with developers, recruiters, and people building useful products. Feel free to reach out.</p>
       </div>
       <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
-        <div data-reveal className="space-y-3 ">
+        <div data-reveal className="space-y-5 ">
           <a href={`mailto:${site.email}`} className="inline-flex min-h-[44px] items-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-cyan bg-cyan text-ink hover:bg-cyan/85 w-full justify-start"><Mail size={16} />{site.email}</a>
           {
             [['LinkedIn', site.linkedin, Linkedin], ['GitHub', site.github, Github]].map(([l, h, Icon]) => <a key={l} href={h} target="_blank" rel="noreferrer" className="inline-flex min-h-[44px] items-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan w-full justify-start"><Icon size={16} />{l}</a>
             )
           }
+          <div  className="inline-flex min-h-[44px] items-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan w-full justify-start"><LocateIcon size={16} />Ranchi, Jharkhand</div>
         </div>
         <form data-reveal onSubmit={submit} noValidate className="space-y-4 -mt-1">
           {
@@ -70,7 +72,7 @@ export default function Contact() {
             <textarea id="message" rows={5} value={credential.message} onChange={set('message')} aria-invalid={!!errors.message} aria-describedby={errors.message ? 'message-err' : undefined} className={input('message')} />
             {errors.message && <p id="message-err" className="mt-1 text-sm text-red-400">{errors.message}</p>}
           </div>
-          <button type="submit" disabled={status.type === 'loading'} className="inline-flex min-h-[44px] items-center justify-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-cyan bg-cyan text-ink hover:bg-cyan/85 w-full sm:w-auto">{site.formEndpoint ? 'Send message' : 'Open in email app'}</button>
+          <button type="submit" disabled={status.type === 'loading'} className="inline-flex min-h-[44px] items-center justify-center gap-2 border px-5 text-sm font-bold transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-cyan bg-cyan text-ink hover:bg-cyan/85 w-full sm:w-auto">Send Message <LuSend size={16} className='font-extrabold' /> </button>
           <p role="status" aria-live="polite" className={`text-sm ${color[status.type]}`}>{status.text}</p>
         </form>
       </div>
