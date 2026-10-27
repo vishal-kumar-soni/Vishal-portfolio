@@ -55,7 +55,7 @@ export default function Contact() {
             [['LinkedIn', site.linkedin, Linkedin], ['GitHub', site.github, Github]].map(([l, h, Icon]) => <a key={l} href={h} target="_blank" rel="noreferrer" className="inline-flex min-h-[44px] items-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan w-full justify-start"><Icon size={16} />{l}</a>
             )
           }
-          <div  className="inline-flex min-h-[44px] items-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan w-full justify-start"><LocateIcon size={16} />Ranchi, Jharkhand</div>
+          <div className="inline-flex min-h-[44px] items-center gap-2 border px-5 text-sm font-medium transition-colors aria-disabled:pointer-events-none aria-disabled:opacity-40 border-line text-zinc-200 hover:border-cyan/60 hover:text-cyan w-full justify-start"><LocateIcon size={16} />Ranchi, Jharkhand</div>
         </div>
         <form data-reveal onSubmit={submit} noValidate className="space-y-4 -mt-1">
           {
